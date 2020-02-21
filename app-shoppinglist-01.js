@@ -51,6 +51,7 @@ app.get('/', is_logged_handler, list_controller.get_lists);
 app.post('/delete-list', is_logged_handler, list_controller.post_delete_list);
 app.get('/list/:id', is_logged_handler, list_controller.get_list);
 app.post('/add-list', is_logged_handler, list_controller.post_list);
+app.post('/list/:id', is_logged_handler, list_controller.post_list);
 
 app.use((req, res, next) => {
     res.status(404);

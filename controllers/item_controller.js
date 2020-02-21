@@ -1,65 +1,64 @@
-/*const note_model = require('../models/note-model');
-const note_views = require('../views/note-views');
+const item_model = require('../models/item-model');
+const item_views = require('../views/item-views');
 
-const get_notes = (req, res, next) => {
-    const user = req.user;
-    user.populate('notes')
+const get_items = (req, res, next) => {
+    const list = req.list;
+    list.populate('items')
         .execPopulate()
         .then(() => {
-            console.log('user:', user);
+            console.log('list:', list);
             let data = {
-                user_name: user.name,
-                notes: user.notes
+                list_name: list.name,
+                items: list.items
             };
-            let html = note_views.notes_view(data);
+            let html = item_views.items_view(data);
             res.send(html);
         });
 };
 
-const post_delete_note = (req, res, next) => {
-    const user = req.user;
-    const note_id_to_delete = req.body.note_id;
+const post_delete_item = (req, res, next) => {
+    const list = req.list;
+    const item_id_to_delete = req.body.item_id;
 
-    //Remove note from user.notes
-    const updated_notes = user.notes.filter((note_id) => {
-        return note_id != note_id_to_delete;
+    //Remove item from list.items
+    const updated_items = list.items.filter((item_id) => {
+        return item_id != item_id_to_delete;
     });
-    user.notes = updated_notes;
+    list.items = updated_items;
 
-    //Remove note object from database
-    user.save().then(() => {
-        note_model.findByIdAndRemove(note_id_to_delete).then(() => {
+    //Remove item object from database
+    list.save().then(() => {
+        item_model.findByIdAndRemove(item_id_to_delete).then(() => {
             res.redirect('/');
         });
     });
 };
 
-const get_note = (req, res, next) => {
-    const note_id = req.params.id;
-    note_model.findOne({
-        _id: note_id
-    }).then((note) => {
-        res.send(note.text);
+const get_item = (req, res, next) => {
+    const item_id = req.params.id;
+    item_model.findOne({
+        _id: item_id
+    }).then((item) => {
+        res.send(item.text);
     });
 };
 
-const post_note = (req, res, next) => {
-    const user = req.user;
-    let new_note = note_model({
-        text: req.body.note
+const post_item = (req, res, next) => {
+    const list = req.list;
+    let new_item = item_model({
+        text: req.body.item
     });
-    new_note.save().then(() => {
-        console.log('note saved');
-        user.notes.push(new_note);
-        user.save().then(() => {
+    new_item.save().then(() => {
+        console.log('item saved');
+        list.items.push(new_item);
+        list.save().then(() => {
             return res.redirect('/');
         });
     });
 };
 
 
-module.exports.get_notes = get_notes;
-module.exports.get_note = get_note;
-module.exports.post_note = post_note;
-module.exports.post_delete_note = post_delete_note;
-*/
+module.exports.get_items = get_items;
+module.exports.get_item = get_item;
+module.exports.post_item = post_item;
+module.exports.post_delete_item = post_delete_item;
