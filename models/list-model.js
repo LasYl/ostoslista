@@ -5,8 +5,7 @@ const list_schema = new Schema({
     text: {
         type: String,
         required: true
-    }
-    ,
+    },
     items: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'item',

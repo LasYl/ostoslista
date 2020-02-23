@@ -2,21 +2,21 @@ const item_view = ((data) => {
     let html = `
     <html>
     <body>
-        Logged in as user: ${data.user_name}
+        Logged in as user: 
         <form action="/logout" method="POST">
             <button type="submit">Log out</button>
         </form>`;
 
 
-    data.items.forEach((item) => {
-        html += item.text;
+   /* data.items.forEach((item) => {
+        html += item.text; 
         html += `
             <form action="delete-item" method="POST">
                 <input type="hidden" name="item_id" value="${item._id}">
                 <button type="submit">Delete item</button>
             </form>
             `;
-    });
+    });*/
 
     html += `
         <form action="/add-item" method="POST">

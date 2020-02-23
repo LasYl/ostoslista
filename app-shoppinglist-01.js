@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 //Controllers
 const auth_controller = require('./controllers/auth_controller');
 const list_controller = require('./controllers/list_controller');
+const item_controller = require('./controllers/item_controller');
 
 let app = express();
 
@@ -46,12 +47,19 @@ app.post('/register', auth_controller.post_register);
 app.post('/logout', auth_controller.post_logout);
 
 
-//Notes
+//Listat
 app.get('/', is_logged_handler, list_controller.get_lists);
 app.post('/delete-list', is_logged_handler, list_controller.post_delete_list);
-app.get('/list/:id', is_logged_handler, list_controller.get_list);
+//app.get('/list/:id', is_logged_handler, list_controller.get_list);
 app.post('/add-list', is_logged_handler, list_controller.post_list);
-app.post('/list/:id', is_logged_handler, list_controller.post_list);
+//app.post('/list/:id', is_logged_handler, list_controller.post_lists);
+
+app.get('/list/:id', is_logged_handler, item_controller.get_items);
+app.post('/delete-item', is_logged_handler, item_controller.post_delete_item);
+app.get('/item/:id', is_logged_handler, item_controller.get_item);
+app.post('/add-item', is_logged_handler, item_controller.post_item);
+//app.post('/list/:id', is_logged_handler, item_controller.post_items);
+
 
 app.use((req, res, next) => {
     res.status(404);
