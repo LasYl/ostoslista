@@ -1,8 +1,12 @@
 const list_view = ((data) => {
     let html = `
     <html>
+    <head><title>Ostoslista</title>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        </head>
     <body>
-        Logged in as user: ${data.user_name}
+        <h1>Logged in as user: ${data.user_name}</h1>
         <form action="/logout" method="POST">
             <button type="submit">Log out</button>
         </form>`;

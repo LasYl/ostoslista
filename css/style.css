@@ -1,0 +1,26 @@
+
+.delete_button {
+    background-color: orangered;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    border: none;
+    font-size: 16px;
+    margin: 5px;
+}
+
+button {
+    background-color: greenyellow;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    border: none;
+    font-size: 16px;
+    margin: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+    
+  }

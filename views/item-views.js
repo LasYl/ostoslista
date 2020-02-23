@@ -2,13 +2,14 @@ const item_view = ((data) => {
     let html = `
     <html>
     <body>
+        
         Logged in as user: 
         <form action="/logout" method="POST">
             <button type="submit">Log out</button>
         </form>`;
 
 
-   /* data.items.forEach((item) => {
+   data.list.items.forEach((item) => {
         html += item.text; 
         html += `
             <form action="delete-item" method="POST">
@@ -16,7 +17,7 @@ const item_view = ((data) => {
                 <button type="submit">Delete item</button>
             </form>
             `;
-    });*/
+    });
 
     html += `
         <form action="/add-item" method="POST">

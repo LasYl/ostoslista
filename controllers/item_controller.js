@@ -86,9 +86,11 @@ const post_item = (req, res, next) => {
     });
     new_item.save().then(() => {
         console.log('item saved');
-        list.items.push(new_item);
+        item.push(new_item);
         list.save().then(() => {
-            return res.redirect('/');
+            // Url vaatii tarkistuksen
+            return res.redirect('/shoppinglist/' + req.body.list_id);
+            //return res.redirect('//list/:id');
         });
     });
 };
