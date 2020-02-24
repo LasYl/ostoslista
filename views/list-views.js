@@ -3,7 +3,7 @@ const list_view = ((data) => {
     <html>
     <head><title>Ostoslista</title>
         
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         </head>
     <body>
         <h1>Logged in as user: ${data.user_name}</h1>

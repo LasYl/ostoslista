@@ -1,6 +1,10 @@
 const item_view = ((data) => {
     let html = `
     <html>
+    <head><title>Ostoslista</title>
+        
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
     <body>
         
         Logged in as user: 
