@@ -6,14 +6,15 @@ const item_view = ((data) => {
     <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        
+    
         Logged in as user: 
         <form action="/logout" method="POST">
             <button type="submit">Log out</button>
-        </form>`;
+            </div>
+        </form> <div class = "tausta">`;
 
-
-   data.list.items.forEach((item) => {
+   
+   data.items.forEach((item) => {
         html += item.text; 
         html += `
             <form action="delete-item" method="POST">
@@ -24,10 +25,11 @@ const item_view = ((data) => {
     });
 
     html += `
-        <form action="/add-item" method="POST">
-            <input type="text" name="item">
+        <form action="/add-item/${data.list_id}" method="POST">
+            <input type="text" name="item_text">
             <button type="submit">Add item</button>
         </form>
+        </div>
     </html>
     </body>
     `;

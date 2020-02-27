@@ -6,11 +6,12 @@ const list_view = ((data) => {
         <link rel="stylesheet" type="text/css" href="css/style.css">
         </head>
     <body>
-        <h1>Logged in as user: ${data.user_name}</h1>
+    <div class="topnav">
+        <h1>Logged in as user: ${data.user_name}
         <form action="/logout" method="POST">
             <button type="submit">Log out</button>
-        </form>`;
-
+        </form></div></h1><div class = "tausta">`;
+    
 
     data.lists.forEach((list) => {
         //html += list.text;
@@ -28,6 +29,7 @@ const list_view = ((data) => {
             <input type="text" name="list">
             <button type="submit">Add list</button>
         </form>
+        </div>
     </html>
     </body>
     `;
@@ -35,3 +37,4 @@ const list_view = ((data) => {
 });
 
 module.exports.list_view = list_view;
+

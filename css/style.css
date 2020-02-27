@@ -19,8 +19,18 @@ button {
     margin: 5px;
 }
 
-h1 {
-    text-align: center;
+h4 {
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em;
     color: red;
     
   }
+
+  .tausta {
+    background-image: url("https://i.pinimg.com/236x/a4/32/4e/a4324e78291e41a5953fbd6b7f41d8f0.jpg");
+    background-size: cover;
+  }
+
+ 
