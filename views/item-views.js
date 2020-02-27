@@ -27,7 +27,9 @@ const item_view = ((data) => {
 
     html += `
         <form action="/add-item/${data.list_id}" method="POST">
-            <input type="text" name="item_text">
+            <input type="text" name="item_text">Item
+            <input type="number" name="quantity">Quantuty
+            <input type="number" placeholder="1.0" step="0.1" name="price">Price/
             <button type="submit">Add item</button>
         </form>
         </div>

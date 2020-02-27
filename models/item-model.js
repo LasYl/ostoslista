@@ -6,10 +6,16 @@ const item_schema = new Schema({
         type: String,
         required: true
     },
-    /*quantity: {
+    quantity: {
         type: Number,
         required: true
-    }*/
+    },
+
+    price: {
+        type: Number,
+        required: false
+    }
+
 });
 const item_model = new mongoose.model('item', item_schema);
 

@@ -40,9 +40,9 @@ const post_item = (req, res, next) => {
     }).then((list) => {
         
         let new_item = item_model({
-            text: req.body.item_text
-            //quantity: req.body.item_quantity,
-            //img: req.body.product_image_url
+            text: req.body.item_text,
+            quantity: req.body.quantity,
+            price: req.body.price
         });
 
         new_item.save().then(() => {
