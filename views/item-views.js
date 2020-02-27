@@ -17,8 +17,9 @@ const item_view = ((data) => {
    data.items.forEach((item) => {
         html += item.text; 
         html += `
-            <form action="delete-item" method="POST">
+            <form action="/delete-item/" method="POST">
                 <input type="hidden" name="item_id" value="${item._id}">
+                <input type="hidden" name="list_id" value="${data.list_id}">
                 <button type="submit">Delete item</button>
             </form>
             `;

@@ -54,26 +54,6 @@ const post_item = (req, res, next) => {
     });
 };
 
-/*const post_item = (req, res, next) => {
-    const list_id = req.params.id;
-    list_model.findOne({
-        _id: list_id
-    }).then((list) => {
-        
-        let new_item = item_model({
-            text: req.body.item_text,
-            //quantity: req.body.product_quantity,
-            //img: req.body.product_image_url
-        });
-
-        new_item.save().then(() => {
-            list.items.push(new_item);
-            list.save().then(() => {
-                return res.redirect(`/list/${list._id}`);
-            });
-        });
-    });
-};*/
 
 const post_list = (req, res, next) => {
     const user = req.user;
@@ -110,6 +90,30 @@ const post_delete_list = (req, res, next) => {
     });
 };
 
+const post_delete_item = (req, res, next) => {
+    const list_id = req.params.id;
+    const item_id_to_delete = req.body.item_id;
+     // find shoppinglist
+  list_model
+  .findById(req.body.list_id)
+  .then(list => {
+
+
+    //Remove item from list.items
+    const updated_items = list.items.filter((item_id) => {
+        return item_id != item_id_to_delete;
+    });
+    list.items = updated_items;
+
+    //Remove item object from database
+    list.save().then(() => {
+        item_model.findByIdAndRemove(item_id_to_delete).then(() => {
+            res.redirect(`/list/${list._id}`);
+        });
+    });
+    });
+};
+
 module.exports.get_lists = get_lists;
 module.exports.get_list = get_list;
 module.exports.post_list = post_list;
@@ -118,4 +122,4 @@ module.exports.post_delete_list = post_delete_list;
 //module.exports.get_items = get_items;
 //module.exports.get_item = get_item;
 module.exports.post_item = post_item;
-//module.exports.post_delete_item = post_delete_item;
+module.exports.post_delete_item = post_delete_item;

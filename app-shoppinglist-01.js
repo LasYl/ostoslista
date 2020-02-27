@@ -55,7 +55,7 @@ app.post('/add-list', is_logged_handler, list_controller.post_list);
 //app.post('/list/:id', is_logged_handler, list_controller.post_lists);
 
 //app.get('/list/:id', is_logged_handler, item_controller.get_items);
-//app.post('/delete-item', is_logged_handler, list_controller.post_delete_item);
+app.post('/delete-item/', is_logged_handler, list_controller.post_delete_item);
 //app.get('/item/:id', is_logged_handler, list_controller.get_item);
 app.post('/add-item/:id', is_logged_handler, list_controller.post_item);
 //app.post('/add-item', is_logged_handler, item_controller.post_item);
