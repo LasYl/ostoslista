@@ -14,7 +14,6 @@ const list_view = ((data) => {
     
 
     data.lists.forEach((list) => {
-        //html += list.text;
         html += `
             <a href="/list/${list._id}">${list.text}</a>
             <form action="delete-list" method="POST">

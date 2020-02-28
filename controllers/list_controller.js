@@ -118,8 +118,5 @@ module.exports.get_lists = get_lists;
 module.exports.get_list = get_list;
 module.exports.post_list = post_list;
 module.exports.post_delete_list = post_delete_list;
-
-//module.exports.get_items = get_items;
-//module.exports.get_item = get_item;
 module.exports.post_item = post_item;
 module.exports.post_delete_item = post_delete_item;
