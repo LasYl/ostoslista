@@ -14,8 +14,8 @@ const item_view = ((data) => {
         <div><a href="/}">Back to shoppinglists</a><br></div>
         <div><br>Shoppinglist: ${data.list_name} <br></div>
 
-        <table>
-        <th>Item</th><th>Quantity</th><th>Price</th><th></th>
+        <table width="400">
+        <th>Item\t</th><th>Quantity</th><th>Price</th><th></th>
         `;
 
    

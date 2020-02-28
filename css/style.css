@@ -33,4 +33,24 @@ h4 {
     background-size: cover;
   }
 
+  .front {
+    
+    position:absolute;
+    top:35%;
+    left: 50%;
+    margin-top: -9em; 
+    margin-left: -9em; 
+    border: 5px solid gold;
+    background-color: #f3f3f3;
+  }
+
+  h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position:absolute;
+    color: red;
+    font-size: 110px;
+    
+    
+  }
+
  
