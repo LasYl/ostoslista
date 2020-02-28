@@ -6,13 +6,13 @@ const item_view = ((data) => {
     </head>
     <body>
     
-        Logged in as user: 
+        Logged in as user: ${data.user_name}
         <form action="/logout" method="POST">
             <button type="submit">Log out</button>
             </div>
         </form> <div class = "tausta"><br>
-        <div><br>Back to shoppinglists<br></div>
-        <div><br>Shoppinglist: <br></div>
+        <div><a href="/}">Back to shoppinglists</a><br></div>
+        <div><br>Shoppinglist: ${data.list_name} <br></div>
 
         <table>
         <th>Item</th><th>Quantity</th><th>Price</th><th></th>
@@ -36,9 +36,9 @@ const item_view = ((data) => {
 
     html += `
         </table>
-        <form action="/add-item/${data.list_id}" method="POST">
+        <form action="/add-item/${data.list_name}" method="POST">
         
-        <div style="float:left;margin-right:20px;">
+        <div style="float:left;margin-right:20px; border-style:double;">
         <label for="Item_text">Item</label> <br>  
         <input type="text" name="item_text">
         <br>
