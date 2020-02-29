@@ -18,11 +18,13 @@ const get_lists = (req, res, next) => {
 
 const get_list = (req, res, next) => {
     const list_id = req.params.id;
+    const user = req.user;
     list_model.findOne({
         _id: list_id
     }).then((list) => {
         list.populate('items').execPopulate().then(() => {
             let data = {
+                user_name: user.name,
                 list_name: list.text,
                 items: list.items,
                 list_id: list._id

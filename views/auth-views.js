@@ -2,12 +2,12 @@ const login_view = () => {
     let html = `
     <html>
     <style>
-body {
-  background-image: url("https://i.pinimg.com/236x/a4/32/4e/a4324e78291e41a5953fbd6b7f41d8f0.jpg");
- 
-  background-size: contain;
-}
-</style>
+    body {
+    background-image: url("https://i.pinimg.com/236x/a4/32/4e/a4324e78291e41a5953fbd6b7f41d8f0.jpg");
+    
+    background-size: contain;
+    }
+    </style>
     
     <head><title>Ostoslista</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
